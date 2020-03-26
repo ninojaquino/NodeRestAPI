@@ -6,6 +6,7 @@ export class Book {
         name: { type: String, maxlength: 24 },
         author: { type: String, maxlength: 24 },
         isbn: { type: String, maxlength: 24 },
+        description: { type: String, maxlength: 99 },
         user_id: {
           type: Number,
           key: 'foreign',
