@@ -41,8 +41,25 @@ export class Book {
                 method: 'PUT',
                 callback: this.updateBook,
                 requireToken: true,
+            },
+            {
+                route: '/delete-book/id/:id',
+                method: 'DELETE',
+                callback: this.deleteBook,
+                requireToken: true,
             }
         ]];
+    }
+
+    //delete books
+
+    deleteBook(model: any) {
+        return async (req: Request, res: Response, next: NextFunction) => {
+            console.log('deleteBook ----->', req.body);
+            let bookCtrl = model.controller;
+            let resp = await bookCtrl.remove(req, null, null);
+            res.json({ message: 'Success', resp });
+        }
     }
 
     //update books

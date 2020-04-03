@@ -48,8 +48,23 @@ class Book {
                     method: 'PUT',
                     callback: this.updateBook,
                     requireToken: true,
+                },
+                {
+                    route: '/delete-book/id/:id',
+                    method: 'DELETE',
+                    callback: this.deleteBook,
+                    requireToken: true,
                 }
             ]];
+    }
+    //delete books
+    deleteBook(model) {
+        return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            console.log('deleteBook ----->', req.body);
+            let bookCtrl = model.controller;
+            let resp = yield bookCtrl.remove(req, null, null);
+            res.json({ message: 'Success', resp });
+        });
     }
     //update books
     updateBook(model) {
