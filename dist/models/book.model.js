@@ -42,8 +42,23 @@ class Book {
                     method: 'POST',
                     callback: this.createBook,
                     requireToken: true,
+                },
+                {
+                    route: '/update-book/id/:id',
+                    method: 'PUT',
+                    callback: this.updateBook,
+                    requireToken: true,
                 }
             ]];
+    }
+    //update books
+    updateBook(model) {
+        return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            console.log('updateBook ----->', req.body);
+            let bookCtrl = model.controller;
+            let resp = yield bookCtrl.update(req, null, null);
+            res.json({ message: 'Success', resp });
+        });
     }
     //create books
     createBook(model) {

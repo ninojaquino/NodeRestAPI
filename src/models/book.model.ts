@@ -35,8 +35,25 @@ export class Book {
                 method: 'POST',
                 callback: this.createBook,
                 requireToken: true,
+            },
+            {
+                route: '/update-book/id/:id',
+                method: 'PUT',
+                callback: this.updateBook,
+                requireToken: true,
             }
         ]];
+    }
+
+    //update books
+
+    updateBook(model: any) {
+        return async (req: Request, res: Response, next: NextFunction) => {
+            console.log('updateBook ----->', req.body);
+            let bookCtrl = model.controller;
+            let resp = await bookCtrl.update(req, null, null);
+            res.json({ message: 'Success', resp });
+        }
     }
 
     //create books
