@@ -1,0 +1,209 @@
+Nino Jesus Aquino
+IS 183 LAB 5,6,7 Documentation
+Professor Phan
+
+Description: Get all the books from the database
+Endpoint: http://localhost:3002/api/v1/book/get-all-books
+Method: GET
+Params: none
+Request Payload: none
+Response:
+            {
+                "id": 1,
+                "name": "Harry Potter",
+                "author": "JK Rowling",
+                "isbn": "8715223436192",
+                "user_id": 1,
+                "active": true,
+                "created_by": "naquino",
+                "updated_by": "naquino",
+                "created_at": "2020-03-26T01:36:12.552Z",
+                "updated_at": "2020-03-26T03:33:27.230Z",
+                "deleted_at": null,
+                "description": "Book of Harry Potter"
+            },
+            {
+                "id": 2,
+                "name": "Twilight",
+                "author": "Stephenie Meyer",
+                "isbn": "123456789",
+                "user_id": 1,
+                "active": true,
+                "created_by": "naquino",
+                "updated_by": "naquino",
+                "created_at": "2020-03-26T01:36:49.854Z",
+                "updated_at": "2020-03-26T03:33:40.798Z",
+                "deleted_at": null,
+                "description": "Book of Twilight"
+            },
+            {
+                "id": 5,
+                "name": "Walking Dead",
+                "author": "Robert Kirkman",
+                "isbn": "123456789",
+                "user_id": 3,
+                "active": true,
+                "created_by": "naquino",
+                "updated_by": "naquino",
+                "created_at": "2020-03-26T01:44:47.792Z",
+                "updated_at": "2020-03-26T03:34:09.352Z",
+                "deleted_at": null,
+                "description": "Book of Walking Dead"
+            }
+_________________________________
+Description: Get a book by its ID from the database
+Endpoint: http://localhost:3002/api/v1/book/get-book-by-id/1
+Method: GET
+Params: id - the book id
+Request Payload: none
+Response:
+ {
+                "id": 1,
+                "name": "Harry Potter",
+                "author": "JK Rowling",
+                "isbn": "8715223436192",
+                "user_id": 1,
+                "active": true,
+                "created_by": "naquino",
+                "updated_by": "naquino",
+                "created_at": "2020-03-26T01:36:12.552Z",
+                "updated_at": "2020-03-26T03:33:27.230Z",
+                "deleted_at": null,
+                "description": "Book of Harry Potter"
+            }
+
+Description: Get a book by its ID from the database
+Endpoint: http://localhost:3002/api/v1/book/get-book-by-id/2
+Method: GET
+Params: id - the book id
+Request Payload: none
+Response:
+ {
+                "id": 2,
+                "name": "Twilight",
+                "author": "Stephenie Meyer",
+                "isbn": "123456789",
+                "user_id": 1,
+                "active": true,
+                "created_by": "naquino",
+                "updated_by": "naquino",
+                "created_at": "2020-03-26T01:36:49.854Z",
+                "updated_at": "2020-03-26T03:33:40.798Z",
+                "deleted_at": null,
+                "description": "Book of Twilight"
+            }
+
+Description: Get a book by its ID from the database
+Endpoint: http://localhost:3002/api/v1/book/get-book-by-id/5
+Method: GET
+Params: id - the book id
+Request Payload: none
+Response:
+    {
+                "id": 5,
+                "name": "Walking Dead",
+                "author": "Robert Kirkman",
+                "isbn": "123456789",
+                "user_id": 3,
+                "active": true,
+                "created_by": "naquino",
+                "updated_by": "naquino",
+                "created_at": "2020-03-26T01:44:47.792Z",
+                "updated_at": "2020-03-26T03:34:09.352Z",
+                "deleted_at": null,
+                "description": "Book of Walking Dead"
+            }
+
+_________________________________
+
+
+Description: Create a new book record
+Endpoint: http://localhost:3002/api/v1/book/create-book
+Method: POST
+Params: none
+Request Payload:
+ {
+	"name": "Game of Thrones",
+	"author": "George R.R. Martin",
+	"isbn": 987654321,
+	"description": "Book of Game of Thrones"
+}
+ 
+
+ Response:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 6,
+            "name": "Game of Thrones",
+            "author": "George R.R. Martin",
+            "isbn": "987654321",
+            "user_id": null,
+            "active": true,
+            "created_by": "naquino",
+            "updated_by": null,
+            "created_at": "2020-04-03T00:39:30.539Z",
+            "updated_at": "2020-04-03T00:39:30.539Z",
+            "deleted_at": null,
+            "description": "Book of Game of Thrones"
+        },
+        "statusCode": 200
+    }
+}
+ _________________________________
+Description: Update a book record
+Endpoint: http://localhost:3002/api/v1/book/update-book/id/5
+Method: PUT
+Params: id - the id of the book
+Request Payload:
+{
+	"name": "The Walking Dead"
+	"isbn": "684719274618394",
+	"description": "Book of The Walking Dead"
+} 
+Response:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 5,
+            "name": "The Walking Dead",
+            "author": "Robert Kirkman",
+            "isbn": "684719274618394",
+            "user_id": 3,
+            "active": true,
+            "created_by": "naquino",
+            "updated_by": "naquino",
+            "created_at": "2020-03-26T01:44:47.792Z",
+            "updated_at": "2020-04-03T00:55:30.574Z",
+            "deleted_at": null,
+            "description": "Book of The Walking Dead"
+        },
+        "statusCode": 200
+    }
+}
+ _________________________________
+Description: Delete a book record
+Endpoint: http://localhost:3002/api/v1/book/delete-book/id/6
+Method: DELETE
+Params: id - The id of the book
+Request Payload: None
+Response:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "command": "DELETE",
+            "rowCount": 1,
+            "oid": null,
+            "rows": [],
+            "fields": [],
+            "_parsers": [],
+            "RowCtor": null,
+            "rowAsArray": false
+        },
+        "statusCode": 200
+    }
+}
+
