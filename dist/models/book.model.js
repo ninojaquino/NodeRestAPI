@@ -36,10 +36,25 @@ class Book {
                     method: 'POST',
                     callback: this.getBookById,
                     requireToken: true,
+                },
+                {
+                    route: '/create-book',
+                    method: 'POST',
+                    callback: this.createBook,
+                    requireToken: true,
                 }
-            ]
-        ];
+            ]];
     }
+    //create books
+    createBook(model) {
+        return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            console.log('createBook ----->', req.body);
+            let bookCtrl = model.controller;
+            let resp = yield bookCtrl.insert(req, null, null);
+            res.json({ message: 'Success', resp });
+        });
+    }
+    // get books
     getAllBooks(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {

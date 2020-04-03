@@ -29,10 +29,28 @@ export class Book {
                 method: 'POST',
                 callback: this.getBookById,
                 requireToken: true,
+            },
+            {
+                route: '/create-book',
+                method: 'POST',
+                callback: this.createBook,
+                requireToken: true,
             }
-        ]
-        ];
+        ]];
     }
+
+    //create books
+
+    createBook(model: any) {
+        return async (req: Request, res: Response, next: NextFunction) => {
+            console.log('createBook ----->', req.body);
+            let bookCtrl = model.controller;
+            let resp = await bookCtrl.insert(req, null, null);
+            res.json({ message: 'Success', resp });
+        }
+    }
+
+    // get books
 
     getAllBooks(model: any) {
         return async (req: Request, res: Response, next: NextFunction) => {
