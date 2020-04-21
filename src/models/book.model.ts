@@ -1,4 +1,5 @@
 import {Request, Response, NextFunction} from 'express';
+import { stringify } from 'querystring';
 
 export class Book {
     _model: any;
@@ -9,6 +10,9 @@ export class Book {
             author: { type: String, maxlength: 24 },
             isbn: { type: String, maxlength: 24 },
             description: { type: String, maxlength: 99 },
+            image_url: { type: String, maxlength: 1000 },
+            quantity: {type: String, maxlength: 10},
+            price: {type: String, maxlength: 20},
             user_id: {
                 type: Number,
                 key: 'foreign',
